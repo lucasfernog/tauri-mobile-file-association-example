@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">tauri-mobile-file-association-example</string>
+    <string name="main_activity_title">tauri-mobile-file-association-example</string>
+</resources>
