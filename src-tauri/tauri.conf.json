@@ -58,6 +58,7 @@
         "ext": [
           "taurijson"
         ],
+        "mimeType": "application/octet-stream",
         "exportedType": {
           "identifier": "com.tauri.dev-file-associations-demo.taurijson",
           "conformsTo": [
