@@ -1,7 +1,8 @@
-import { createSignal } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 import logo from "./assets/logo.svg";
 import { listen } from "@tauri-apps/api/event";
 import "./App.css";
+import { invoke } from "@tauri-apps/api/core";
 
 function App() {
   const [urls, setUrls] = createSignal<string[]>([]);
@@ -9,6 +10,12 @@ function App() {
   listen<string[]>("opened", (event) => {
     console.log(event.payload);
     setUrls(event.payload);
+  });
+
+  onMount(() => {
+    invoke<string[]>("opened_urls").then((urls) => {
+      setUrls(urls);
+    });
   });
 
   return (
