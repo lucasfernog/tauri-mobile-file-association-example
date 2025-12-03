@@ -3541,9 +3541,8 @@ checksum = "61c41af27dd6d1e27b1b16b489db798443478cef1f06a660c96db617ba5de3b1"
 
 [[package]]
 name = "tauri"
-version = "2.9.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "15524fc7959bfcaa051ba6d0b3fb1ef18e978de2176c7c6acb977f7fd14d35c7"
+version = "2.9.3"
+source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#98e2a440e1a0cca0a09bb2eedafbb37c7da2eee8"
 dependencies = [
  "anyhow",
  "bytes",
@@ -3575,11 +3574,11 @@ dependencies = [
  "serde_repr",
  "serialize-to-javascript",
  "swift-rs",
- "tauri-build",
+ "tauri-build 2.5.2",
  "tauri-macros",
  "tauri-runtime",
  "tauri-runtime-wry",
- "tauri-utils",
+ "tauri-utils 2.8.0",
  "thiserror 2.0.17",
  "tokio",
  "tray-icon",
@@ -3588,6 +3587,27 @@ dependencies = [
  "webview2-com",
  "window-vibrancy",
  "windows",
+]
+
+[[package]]
+name = "tauri-build"
+version = "2.5.2"
+source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#98e2a440e1a0cca0a09bb2eedafbb37c7da2eee8"
+dependencies = [
+ "anyhow",
+ "cargo_toml",
+ "dirs",
+ "glob",
+ "heck 0.5.0",
+ "json-patch",
+ "schemars 0.8.22",
+ "semver",
+ "serde",
+ "serde_json",
+ "tauri-utils 2.8.0",
+ "tauri-winres",
+ "toml 0.9.8",
+ "walkdir",
 ]
 
 [[package]]
@@ -3606,7 +3626,7 @@ dependencies = [
  "semver",
  "serde",
  "serde_json",
- "tauri-utils",
+ "tauri-utils 2.8.1",
  "tauri-winres",
  "toml 0.9.8",
  "walkdir",
@@ -3614,9 +3634,8 @@ dependencies = [
 
 [[package]]
 name = "tauri-codegen"
-version = "2.5.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9fa9844cefcf99554a16e0a278156ae73b0d8680bbc0e2ad1e4287aadd8489cf"
+version = "2.5.1"
+source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#98e2a440e1a0cca0a09bb2eedafbb37c7da2eee8"
 dependencies = [
  "base64 0.22.1",
  "brotli",
@@ -3631,7 +3650,7 @@ dependencies = [
  "serde_json",
  "sha2",
  "syn 2.0.111",
- "tauri-utils",
+ "tauri-utils 2.8.0",
  "thiserror 2.0.17",
  "time",
  "url",
@@ -3641,16 +3660,15 @@ dependencies = [
 
 [[package]]
 name = "tauri-macros"
-version = "2.5.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3764a12f886d8245e66b7ee9b43ccc47883399be2019a61d80cf0f4117446fde"
+version = "2.5.1"
+source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#98e2a440e1a0cca0a09bb2eedafbb37c7da2eee8"
 dependencies = [
  "heck 0.5.0",
  "proc-macro2",
  "quote",
  "syn 2.0.111",
  "tauri-codegen",
- "tauri-utils",
+ "tauri-utils 2.8.0",
 ]
 
 [[package]]
@@ -3660,7 +3678,7 @@ dependencies = [
  "serde",
  "serde_json",
  "tauri",
- "tauri-build",
+ "tauri-build 2.5.3",
  "tauri-plugin-opener",
 ]
 
@@ -3676,7 +3694,7 @@ dependencies = [
  "schemars 0.8.22",
  "serde",
  "serde_json",
- "tauri-utils",
+ "tauri-utils 2.8.1",
  "toml 0.9.8",
  "walkdir",
 ]
@@ -3705,9 +3723,8 @@ dependencies = [
 
 [[package]]
 name = "tauri-runtime"
-version = "2.9.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "87f766fe9f3d1efc4b59b17e7a891ad5ed195fa8d23582abb02e6c9a01137892"
+version = "2.9.1"
+source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#98e2a440e1a0cca0a09bb2eedafbb37c7da2eee8"
 dependencies = [
  "cookie",
  "dpi",
@@ -3720,7 +3737,7 @@ dependencies = [
  "raw-window-handle",
  "serde",
  "serde_json",
- "tauri-utils",
+ "tauri-utils 2.8.0",
  "thiserror 2.0.17",
  "url",
  "webkit2gtk",
@@ -3730,9 +3747,8 @@ dependencies = [
 
 [[package]]
 name = "tauri-runtime-wry"
-version = "2.9.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7950f3bde6bcca6655bc5e76d3d6ec587ceb81032851ab4ddbe1f508bdea2729"
+version = "2.9.1"
+source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#98e2a440e1a0cca0a09bb2eedafbb37c7da2eee8"
 dependencies = [
  "gtk",
  "http",
@@ -3747,7 +3763,7 @@ dependencies = [
  "softbuffer",
  "tao",
  "tauri-runtime",
- "tauri-utils",
+ "tauri-utils 2.8.0",
  "url",
  "webkit2gtk",
  "webview2-com",
@@ -3757,12 +3773,49 @@ dependencies = [
 
 [[package]]
 name = "tauri-utils"
+version = "2.8.0"
+source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#98e2a440e1a0cca0a09bb2eedafbb37c7da2eee8"
+dependencies = [
+ "anyhow",
+ "brotli",
+ "cargo_metadata",
+ "ctor",
+ "dunce",
+ "glob",
+ "html5ever",
+ "http",
+ "infer",
+ "json-patch",
+ "kuchikiki",
+ "log",
+ "memchr",
+ "phf 0.11.3",
+ "plist",
+ "proc-macro2",
+ "quote",
+ "regex",
+ "schemars 0.8.22",
+ "semver",
+ "serde",
+ "serde-untagged",
+ "serde_json",
+ "serde_with",
+ "swift-rs",
+ "thiserror 2.0.17",
+ "toml 0.9.8",
+ "url",
+ "urlpattern",
+ "uuid",
+ "walkdir",
+]
+
+[[package]]
+name = "tauri-utils"
 version = "2.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "76a423c51176eb3616ee9b516a9fa67fed5f0e78baaba680e44eb5dd2cc37490"
 dependencies = [
  "anyhow",
- "brotli",
  "cargo_metadata",
  "ctor",
  "dunce",
@@ -5221,8 +5274,3 @@ dependencies = [
  "syn 2.0.111",
  "winnow 0.7.14",
 ]
-
-[[patch.unused]]
-name = "tauri"
-version = "2.9.3"
-source = "git+https://github.com/tauri-apps/tauri?branch=feat%2Fmobile-file-association#9d20d6920fe9e6144cafd4fdfb2ddd49ed35d84f"
