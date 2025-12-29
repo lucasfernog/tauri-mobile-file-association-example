@@ -3691,6 +3691,7 @@ dependencies = [
  "serde_json",
  "tauri",
  "tauri-build",
+ "tauri-plugin-fs",
  "tauri-plugin-opener",
 ]
 
@@ -3709,6 +3710,28 @@ dependencies = [
  "tauri-utils 2.8.1",
  "toml 0.9.8",
  "walkdir",
+]
+
+[[package]]
+name = "tauri-plugin-fs"
+version = "2.4.4"
+source = "git+https://github.com/tauri-apps/plugins-workspace?branch=feat%2Fsecurity-scoped-ios#867eeed932a19d95de29a70e2d4806d2d2eace88"
+dependencies = [
+ "anyhow",
+ "dunce",
+ "glob",
+ "objc2-foundation 0.3.2",
+ "percent-encoding",
+ "schemars 0.8.22",
+ "serde",
+ "serde_json",
+ "serde_repr",
+ "tauri",
+ "tauri-plugin",
+ "tauri-utils 2.8.1",
+ "thiserror 2.0.17",
+ "toml 0.9.8",
+ "url",
 ]
 
 [[package]]

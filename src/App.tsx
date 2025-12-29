@@ -3,18 +3,32 @@ import logo from "./assets/logo.svg";
 import { listen } from "@tauri-apps/api/event";
 import "./App.css";
 import { invoke } from "@tauri-apps/api/core";
+import { readFile } from "@tauri-apps/plugin-fs";
 
 function App() {
   const [urls, setUrls] = createSignal<string[]>([]);
+  const [files, setFiles] = createSignal<string[]>([]);
+
+  async function handleOpenFile(urls: string[]) {
+    setUrls(urls);
+    setFiles([]);
+
+    const files = [];
+    for (const url of urls) {
+      const file = await readFile(url);
+      files.push(`${file.length} bytes`);
+    }
+    setFiles(files);
+  }
 
   listen<string[]>("opened", (event) => {
     console.log(event.payload);
-    setUrls(event.payload);
+    handleOpenFile(event.payload);
   });
 
   onMount(() => {
     invoke<string[]>("opened_urls").then((urls) => {
-      setUrls(urls);
+      handleOpenFile(urls);
     });
   });
 
@@ -34,7 +48,12 @@ function App() {
         </a>
       </div>
 
-      <p>{urls().join(", ")}</p>
+      {urls().map((url, index) => (
+        <>
+          <p>{url}</p>
+          <b>{files()[index]}</b>
+        </>
+      ))}
     </main>
   );
 }
