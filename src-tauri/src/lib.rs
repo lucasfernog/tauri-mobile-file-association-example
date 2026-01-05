@@ -14,6 +14,11 @@ fn opened_urls(app: tauri::AppHandle) -> Vec<tauri::Url> {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        .plugin(
+            tauri_plugin_log::Builder::new()
+                .level(tauri_plugin_log::log::LevelFilter::Debug)
+                .build(),
+        )
         .plugin(tauri_plugin_fs::init())
         .manage(OpenedUrls(Mutex::new(vec![])))
         .invoke_handler(tauri::generate_handler![opened_urls])

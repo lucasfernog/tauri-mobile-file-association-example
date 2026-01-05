@@ -5,6 +5,32 @@ import "./App.css";
 import { invoke } from "@tauri-apps/api/core";
 import { readFile } from "@tauri-apps/plugin-fs";
 
+async function startAccessingSecurityScopedResource(
+  path: string | URL
+): Promise<void> {
+  if (path instanceof URL && path.protocol !== "file:") {
+    throw new TypeError("Must be a file URL.");
+  }
+
+  await invoke("plugin:fs|start_accessing_security_scoped_resource", {
+    path: path instanceof URL ? path.toString() : path,
+  });
+}
+
+async function stopAccessingSecurityScopedResource(
+  path: string | URL
+): Promise<void> {
+  if (path instanceof URL && path.protocol !== "file:") {
+    throw new TypeError("Must be a file URL.");
+  }
+
+  await invoke("plugin:fs|stop_accessing_security_scoped_resource", {
+    path: path instanceof URL ? path.toString() : path,
+  });
+}
+
+const manualTracking = false;
+
 function App() {
   const [urls, setUrls] = createSignal<string[]>([]);
   const [files, setFiles] = createSignal<string[]>([]);
@@ -15,7 +41,13 @@ function App() {
 
     const files = [];
     for (const url of urls) {
+      if (manualTracking) {
+        await startAccessingSecurityScopedResource(url);
+      }
       const file = await readFile(url);
+      if (manualTracking) {
+        await stopAccessingSecurityScopedResource(url);
+      }
       files.push(`${file.length} bytes`);
     }
     setFiles(files);
